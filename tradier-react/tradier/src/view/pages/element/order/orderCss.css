@@ -1,0 +1,123 @@
+.order_tr td {
+    position: relative;
+}
+.filled:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -18px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #00BA65;
+    background: #00BA65;
+    border-radius: 50%;
+}
+.canceled:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -18px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgb(237, 84, 84);
+    background: rgb(237, 84, 84);
+    border-radius: 50%;
+    
+}
+.open:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -18px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgb(255 ,125, 57);
+    background: rgb(255, 125 , 57);
+    border-radius: 50%;
+}
+.expired:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -18px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgb(237, 84, 84);
+    background: rgb(237, 84, 84);
+    border-radius: 50%;
+}
+.rejected:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -18px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgb(237, 84, 84);
+    background: rgb(237, 84, 84);
+    border-radius: 50%;
+}
+.pending:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -18px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #727cf5;
+    background: #727cf5;
+    border-radius: 50%;
+}
+.partially_filled:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -18px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #0066AF;
+    background: #0066AF;
+    border-radius: 50%;
+}
+.submitted:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -18px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgb(255 ,125, 57);
+    background: rgb(255, 125 , 57);
+    border-radius: 50%;
+
+}
+
+tr.order_tr.showhide.hide.true {
+    display: table-row;
+}
+a.viewmore {
+    float: right;
+    cursor: pointer;
+    font-weight: 800;
+}
+.slimscroll{
+    max-height:294px;
+}
+.row.pm-4 {
+    padding-bottom: 4px;
+}
+
+.last-right td:last-child {
+    float: right;
+    font-weight: 600;
+    color: #000;
+    margin-right: 15px;
+}

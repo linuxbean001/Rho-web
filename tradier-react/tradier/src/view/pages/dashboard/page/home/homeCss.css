@@ -1,0 +1,319 @@
+.card .header-title {
+  text-align: left;
+
+  margin-top: 15px;
+}
+td {
+  text-align: left;
+}
+th {
+  text-align: left;
+}
+
+.table-sm tr {
+  border-top: 1px solid #e3eaef;
+}
+
+.table-sm tr:first-child {
+  border-top: none;
+}
+
+
+.table-sm th, .table-sm td {
+  padding: 11px 0;
+  font-size: 13px;
+  border-top: none;
+}
+
+.card-body {
+  padding: 0 15px;
+}
+
+.page-title-right.toggleAccountDiv {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+select.form-control.form-control-light.toggle-color {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+.slimscroll{
+  min-height:294px !important;
+  max-height:294px !important;
+}
+/* .mdi-menu-down:before {
+  font-size: 25px;
+    line-height: 0px;
+}
+.mdi-menu-up:before {
+  font-size: 25px;
+    line-height: 0px;
+} */
+.c-gray {
+  color: #6c757d;
+}
+
+.progressheading {
+  float: left;
+  margin-right: 15px;
+  line-height: 6px;
+  position: relative;
+  width: 50px;
+}
+.progress-sm {
+  height: 8px;
+  
+}
+.progess-color{
+  background-color: rgb(255, 125, 57);
+}
+.bs-green{
+  color:#1fa764;
+}
+.bs-bluee{
+  color:#4885ff;
+}
+.bs.option{
+  color:#6d62e5;
+}
+.hiddenRow {
+  padding: 0 4px !important;
+  background-color: #eeeeee;
+  font-size: 13px;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
+
+
+
+
+
+
+.div-table {
+  display: table;         
+  width: 100%;         
+  border-spacing: 5px; 
+  margin-left: -5px;
+}
+.div-table-row {
+  display: table-row;
+  width: 100%;
+  clear: both;
+}
+.div-table-col {
+  float: left; 
+  display: table-column;         
+  width: 15%;  
+  text-align: left;       
+  
+}
+.d-t-h {
+  border-bottom: 1px solid #e3eaef;
+  margin-top: 1px;
+  margin-bottom: 3px;
+ 
+}
+
+h5.collapse-heading {
+  float: left;
+  margin-left: -15px;
+  font-weight: bold;
+  color: black;
+  font-size: 13px;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+h4.collapse-sub-heading {
+  float: left;
+  width: 100%;
+  text-align: left;
+  margin-left: -16px;
+  font-weight: 400;
+  color: black;
+  font-size: 25px;
+  line-height: 0px;
+}
+h4.collapse-sub-heading span {
+  font-size: 13px;
+  margin-left: 10px;
+  /* color: #1fa764; */
+}
+.f-l{
+  float: left;
+}
+
+.f-r{
+  float: right;
+}
+h5.collapse-right-heading {
+  font-size: 13px;
+  text-align: right;
+  margin-top: 0px
+}
+h4.collapse-right-sub-heading {
+  text-align: right;
+  line-height: 24px;
+}
+.t-a-l{
+  text-align: left;
+}
+.t-a-r{
+  text-align: right !important;
+}
+.m-l--15{
+  margin-left: -15px;
+}
+.recharts-wrapper {
+  margin-left: 10px;
+}
+
+.buysellLiset button {
+  border-radius: 0;
+  width: 45%;
+  float: left;
+}
+.buysellLiset {
+  float: left;
+  width: 49%;
+}
+.opencloseList button {
+  width: 45%;
+  border-radius: 0px;
+  
+}
+.opencloseList {
+  float: right;
+  width: 49%;
+}
+/* form.form-horizontal {
+  width: 95%;
+} */
+.form-group label {
+  text-align: left;
+}
+.mt-15 {
+  margin-top: 15px;
+}
+.mb-0-8 {
+  margin-bottom: 0.8rem !important;
+}
+.pad-0-16{
+  padding-right: 16px;
+  padding-left: 0px;
+}
+.graph-link{
+  position: relative;
+    top: 133px;
+    float: right;
+    margin-right: 8%;
+}
+.div-table-row.d-t-h div {
+  font-weight: 700;
+}
+.progressheading {
+  float: left;
+  margin-right: 15px;
+  line-height: 6px;
+  position: relative;
+  width: 55px;
+  margin-top: 7px;
+}
+.progress-sm {
+  height: 8px;
+  margin-top: 5px;
+}
+.w-20{
+  width: 20%;
+}
+hr.table-hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.right-graph-upper-link{
+   float: left;
+    width: 100%;
+    padding-right: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #3645f1 !important;
+    text-align: left;
+    line-height: 0px;
+}
+h4.collapse-right-sub-heading.mb-3.second-heading{
+  color: black;
+  font-size: 16px;
+}
+.f-16{ 
+  font-size: 16px;
+}
+.pos-rel{
+  position: relative;
+ }
+ .top-15{
+ top: -15px;
+ }
+
+ ul.option-stock-day-ul li {
+  float: left;
+  position: relative;
+  /* bottom: 0px; */
+  top: 150px;
+}
+
+ul.option-stock-day-ul {
+  list-style: none;
+  position: relative;
+  margin-left: -41px;
+}
+.c-b-f-b{
+  color: black;
+  font-weight: bold;
+}
+button.btn.btn-link.c-b-f-b.underline {
+  border-bottom: 2px solid #727cf5;
+ 
+}
+.charrt-margin-minus{
+  margin-left: -60px;
+}
+ol.errorList li {
+  text-align: left;
+}
+
+g.recharts-layer.recharts-cartesian-axis.recharts-xAxis.xAxis {
+  display: none;
+}
+g.recharts-layer.recharts-cartesian-axis.recharts-yAxis.yAxis {
+  display: none;
+}
+.formPTag {
+  font-size: 12px;
+  margin-top: 8px;
+  padding-left: -13px;
+  margin-left: -15px;
+}
+
+.btn.btn-primary{
+  background-color: rgb(63 ,70 ,173)!important;
+}
+.formPTag2 {
+  font-size: 11px;
+  margin-top: 8px;
+  padding-left: -13px;
+  margin-left: -3px;
+  width: 93%;
+}
+.mt--14{
+  margin-top: -14px;
+}
+p{
+  color: #6c757d;
+}
+.c-w{
+  color: #fff;
+}

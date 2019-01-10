@@ -1,0 +1,66 @@
+
+.timeline-alt .timeline-item .timeline-item-info {
+    text-align: left;
+}
+.timeline-alt:before {
+    background-color: #e3eaef;
+    bottom: 30px;
+    content: "";
+    left: 9px;
+    position: absolute;
+    top: 20px;
+    width: 2px;
+    z-index: 0;
+    bottom: -36px;
+}
+.defoult_color{
+    color: rgb(255, 125, 57)
+}
+
+.trade{
+    color: rgb(109, 98, 229)
+}
+.DIVADJ{
+    color: rgb(255, 125, 57)
+}
+.option{
+    color: rgb(72, 133, 255)
+}
+.journal{
+    color: rgb(109, 98, 229)
+}
+.CSHGEN{
+    color: rgb(255, 125, 57)
+}
+.ACTMVD{
+    color: rgb(109, 98, 229)
+}
+.DIVPAY{
+    color: rgb(72, 133, 255)
+}
+
+i.defoult_color{
+    background-color: rgb(255, 125, 57)!important;
+}
+
+i.trade{
+    background-color: rgb(109, 98, 229)!important;
+}
+i.DIVADJ{
+    background-color: rgb(255, 125, 57)!important;
+}
+i.option{
+    background-color: rgb(72, 133, 255)!important;
+}
+i.journal{
+    background-color: rgb(109, 98, 229)!important;
+}
+i.CSHGEN{
+    background-color: rgb(255, 125, 57)!important;
+}
+i.ACTMVD{
+    background-color: rgb(109, 98, 229)!important;
+}
+i.DIVPAY{
+    background-color: rgb(72, 133, 255)!important;
+}

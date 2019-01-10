@@ -1,0 +1,24 @@
+.homepage{
+    background: #0160d0;
+    height: -webkit-fill-available;
+}
+h2 {
+    color: #fff !important;
+}
+p {
+    color: #fff;
+}
+.b-white{
+   background: #fff;
+}
+.btn-full{
+    width: 100%;
+}
+
+p.small-white {
+    font-size: 13px;
+    line-height: 13px;
+}
+.home-footer {
+    margin-top: 25px;
+}

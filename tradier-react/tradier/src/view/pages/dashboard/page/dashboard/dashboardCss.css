@@ -1,0 +1,29 @@
+.f-l{
+    float: left;
+}
+.chartjs-chart{
+    height: 320px;
+}
+.sidebar{
+    background: #000000e6;
+}
+.card {
+    border: none;
+    /* -webkit-box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15); */
+    box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
+    margin-bottom: 10px;
+}
+.pad-0 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.pad-5 {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.pad-left-5{
+ padding-left: 5px;
+}
+.pad-right-5{
+  padding-right: 5px;
+}

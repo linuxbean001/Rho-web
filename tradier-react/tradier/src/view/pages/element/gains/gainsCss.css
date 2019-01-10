@@ -1,0 +1,35 @@
+span.plus{
+    color:#1fa764;
+    
+} 
+span.minus {
+    color: #ed5454;
+    
+}
+.iconWith{
+    font-size: 28px;
+    line-height: 0px;
+    top: 6px;
+    position: relative;
+}
+.t-a-l{
+    text-align: left
+}
+.rowcount_hide{
+    display: none;
+}
+
+tr.order_tr.hide {
+    display: none;
+}
+tr.order_tr.showhide.hide.true {
+    display: table-row;
+}
+a.viewmore {
+    float: right;
+    cursor: pointer;
+    font-weight: 800;
+}
+.p-b-5{
+    padding-bottom: 5px;
+}
