@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BasicFunction from '../../../../controller/basicFunction';
 import MarketData from '../../../../modal/marketData/marketData';
 import Trading from '../../../../modal/trading/trading';
+import { Link , Navlink} from 'react-router-dom';
 import { LineChart, Line , XAxis, YAxis, CartesianGrid, Tooltip, Legend ,AreaChart,Area} from 'recharts';
 import {refreshTimeInterval} from '../../../../config';
 const marketData = new MarketData;
@@ -32,9 +33,26 @@ class PostionSingle extends Component {
             orderSuccessMessage:'',
             btnClass:'buy',
             btnClass2:'open',
+            window_width:window.innerWidth,
+            graphWidthequity:0,
+            graphWidthOption:0,
+
             
         } ;
+        this.changeWidthResponsiveTable=this.changeWidthResponsiveTable.bind(this);
     }
+    componentWillMount(){
+        this.setState({window_width:window.innerWidth});
+        this.changeWidthResponsiveTable(window.innerWidth);
+       
+    }
+    changeWidthResponsiveTable(widthGraph){
+        var graphWidthEquaty=basicFunction.graphWidthEquaty(widthGraph,'big');
+        var graphWidthOption=basicFunction.graphWidthEquaty(widthGraph,'small');
+        this.setState({graphWidthequity:graphWidthEquaty});
+        this.setState({graphWidthOption:graphWidthOption});
+        console.log('width is',graphWidthEquaty);
+     }
     changeActionTypeForm(actionType){
          this.setState({actionType:actionType});
          if(actionType==='sell'){
@@ -428,7 +446,7 @@ class PostionSingle extends Component {
     }
     
   render() { 
-   
+  
  var total_cash= 0;
   if(this.props.accountBalance && this.props.accountBalance.total_cash){
     total_cash= this.props.accountBalance.total_cash;
@@ -471,7 +489,8 @@ class PostionSingle extends Component {
      allocation=(equityValue/this.props.totalValue)*100
      processBar=basicFunction.nombarFormat(allocation)+'%';
   }
-
+ 
+//console.log('postion is',this.props.newPostionWithGain);
   return (
         <div className="div-table" >
         
@@ -490,15 +509,15 @@ class PostionSingle extends Component {
                     { this.props.newPostionWithGain && this.props.newPostionWithGain[1] ?  basicFunction.currancyAddWithNumber(this.props.newPostionWithGain[1].last) : ' -'}
                 </span>
             </div>
-             <div className="div-table-col"><span> 
+             <div className="div-table-col"><span > 
                  { this.props.newPostionWithGain && this.props.newPostionWithGain[1] ? 
-                    <span className={basicFunction.priceColor(gainPar)}>
+                    <span className={basicFunction.priceColor(gainPar)} style={{'marginLeft':'3px'}}>
                         {basicFunction.currancyAddWithNumber(findGain)} {' '}
                     ({basicFunction.nombarFormat(gainPar)}%)
                     </span> : ' - ' }</span>
              </div>
                   <div className="div-table-col w-20">
-                    <span className="progressheading">{basicFunction.nombarFormat(allocation)}%</span>
+                    <span className="progressheading" style={{'marginLeft':'6px'}}>{basicFunction.nombarFormat(allocation)}%</span>
                         <div className="progress progress-sm">
                         
                         <div className={"progress-bar progress-lg progess-color"} style={{'width':processBar}} role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -507,25 +526,36 @@ class PostionSingle extends Component {
             </div>
             <div id={"collapseOne"+this.props.index} className="collapse" data-parent="#accordion">
             {this.props.newPostionWithGain && this.props.newPostionWithGain[1] && this.props.newPostionWithGain[1].type !="option" ?
-                    <div className="row" style={{'minHeight': '400px','marginTop':'15px'}}>
-                       <div className="col-md-8 col-sm-12 col-xs-12">
-                            <div className="col-md-5 f-l">
-                                {/* <h5 className="collapse-heading">{basicFunction.optionNameSplit(this.props.newPostionWithGain[0].symbol)}</h5> */}
+                    <div className="row" style={{'minHeight': '365px','marginTop':'15px'}}>
+                       <div className="col-xl-8">
+                           <div className="row">
+                            <div className="col-md-5 col-sm-12  f-l">
+                                
                                 <h4 className="collapse-sub-heading">{this.props.newPostionWithGain[1] && this.props.newPostionWithGain[1].last ? basicFunction.currancyAddWithNumber(this.props.newPostionWithGain[1].last) :'-'}
-                                    {
+                                    {/* {
+                                        // <span> 
+                                        // { this.props.newPostionWithGain && this.props.newPostionWithGain[1] ? 
+                                        //    <span className={basicFunction.priceColor(gainPar)}>
+                                        //        {basicFunction.currancyAddWithNumber(findGain)} {' '}
+                                        //    ({basicFunction.nombarFormat(gainPar)}%)
+                                        //    </span> : ' - ' }</span> 
+                                      
+                                    } */}
+                                     {
                                         <span> 
                                         { this.props.newPostionWithGain && this.props.newPostionWithGain[1] ? 
-                                           <span className={basicFunction.priceColor(gainPar)}>
-                                               {basicFunction.currancyAddWithNumber(findGain)} {' '}
-                                           ({basicFunction.nombarFormat(gainPar)}%)
+                                           <span className={basicFunction.priceColor(this.props.newPostionWithGain[1].change)}>
+                                               {basicFunction.currancyAddWithNumber(this.props.newPostionWithGain[1].change)} {' '}
+                                           ({basicFunction.nombarFormat(this.props.newPostionWithGain[1].change_percentage)}%)
                                            </span> : ' - ' }</span> 
                                       
                                     }
                                 </h4>
                             </div>
-                            <div className="col-md-6 f-l">
+                            <div className="col-md-6 col-sm-12 f-l">
                                     <h5 className="collapse-right-heading">Equity Value</h5>
                                     <h4 className="collapse-right-sub-heading">{basicFunction.currancyAddWithNumber(equityValue)}</h4>
+                            </div>
                             </div>
                             <div className="col-md-4 f-l pad-0">
                                 <table className="table table-sm table-centered mb-0 ">
@@ -546,12 +576,12 @@ class PostionSingle extends Component {
                                 </table>
                             </div>
                             <div className="charrt-margin-minus">
-                                <AreaChart width={665} height={200} data={this.state.optionSeries} margin={{ left: 0,top:10 }}>
+                                <AreaChart width={this.state.graphWidthequity} height={200} data={this.state.optionSeries} margin={{ left: 0,top:10 }}>
                                     <XAxis dataKey="name"/>
                                     <YAxis type="number" domain={[this.state.graphMinValue,this.state.graphMaxValue]} />
                                     
                                     <Tooltip/>
-                                    <Area type="monotone" dataKey="Price" stroke='#8884d8' fill='#8884d8' />
+                                    <Area type="monotone" dataKey="Price" stroke={basicFunction.graphColorPostion(gainPar)} fill={basicFunction.graphColorFillPostion(gainPar)} />
                                 </AreaChart> 
                             </div>  
                           
@@ -564,10 +594,11 @@ class PostionSingle extends Component {
                                 <li><button className={this.state.graphSotckActiveBtn ===6 ? "btn btn-link c-b-f-b underline" : "btn btn-link c-b-f-b"} onClick={()=>this.graphData(this.props.newPostionWithGain[0].symbol,typeis,6)}>1Y</button></li>
                                 <li><button className={this.state.graphSotckActiveBtn ===7 ? "btn btn-link c-b-f-b underline" : "btn btn-link c-b-f-b"} onClick={()=>this.graphData(this.props.newPostionWithGain[0].symbol,typeis,7)}>2Y</button></li>
                             </ul>
-                            <button type="button" className="btn btn-link t-a-r graph-link">View BAC</button>
+                            
+                            <Link to={"/stocks/"+this.props.newPostionWithGain[0].symbol} className=" graph-link">View {basicFunction.optionNameSplit(this.props.newPostionWithGain[0].symbol)}</Link>
                            
                        </div>
-                       <div className="col-md-4 col-sm-12 col-xs-12">
+                       <div className="col-xl-4 orderPreviwXL">
                        {/* form code start */}
                        {this.state.formAndPreviewList=== 0 ?
                        <div>
@@ -701,7 +732,7 @@ FINRA &amp; SIPC</p>
 
                                         </tbody>
                                     </table>
-                                    <div className="form-group mb-0 justify-content-end  col-12 m-l--15">
+                                    <div className="form-group mb-0 justify-content-end  col-12 m-l--15 p-r-5">
                                         <button type="button" className="btn btn-block btn-primary m-l-r--15" onClick={()=>this.createOrder(equity,this.state.previewResData)}>Place Order</button>
                                     </div>
                                     <p className="text-muted formPTag2">Brokerage Services provided by Tradier Brokerage, Inc. Member FINRA &amp; SIPC</p>
@@ -712,17 +743,21 @@ FINRA &amp; SIPC</p>
                     </div> 
                     :
                     <div className="row" style={{'minHeight': '400px','marginTop':'15px'}}>
-                       <div className="col-md-8 col-sm-12 col-xs-12">
+                       <div className="col-xl-8">
                             <div className="col-md-5 f-l">
                                
-                                <h4 className="collapse-sub-heading">{this.props.newPostionWithGain[1] && this.props.newPostionWithGain[1].last ? basicFunction.currancyAddWithNumber(this.props.newPostionWithGain[1].last) :'-'}
-                                { this.props.newPostionWithGain && this.props.newPostionWithGain[1] ? 
-                    <span className={basicFunction.priceColor(gainPar)}>
-                        {basicFunction.currancyAddWithNumber(findGain)} {' '}
-                    ({basicFunction.nombarFormat(gainPar)}%)
-                    </span> : ' - ' }
+                                <h4 className="collapse-sub-heading" style={{'marginLeft': '-12px'}}>{this.props.newPostionWithGain[1] && this.props.newPostionWithGain[1].last ? basicFunction.currancyAddWithNumber(this.props.newPostionWithGain[1].last) :'-'}
+                                {
+                                        <span> 
+                                        { this.props.newPostionWithGain && this.props.newPostionWithGain[1] ? 
+                                           <span className={basicFunction.priceColor(this.props.newPostionWithGain[1].change)}>
+                                               {basicFunction.currancyAddWithNumber(this.props.newPostionWithGain[1].change)} {' '}
+                                           ({basicFunction.nombarFormat(this.props.newPostionWithGain[1].change_percentage)}%)
+                                           </span> : ' - ' }</span> 
+                                      
+                                    }
                                 </h4>
-                                <table className="table table-sm table-centered mb-0 m-l--15" >
+                                <table className="table table-sm table-centered mb-0 " style={{'marginLeft': '-12px'}}>
                                     <tbody> 
                                     <tr>
                                             <td>Bid</td>
@@ -792,16 +827,16 @@ FINRA &amp; SIPC</p>
                                     <XAxis dataKey="name"/>
                                     <YAxis type="number" domain={[this.state.graphMinValue,this.state.graphMaxValue]} />
                                     <Tooltip/>
-                                    <Area type="monotone" dataKey="Price" stroke='#8884d8' fill='#8884d8' />
+                                    <Area type="monotone" dataKey="Price" stroke={basicFunction.graphColorPostion(gainPar)} fill={basicFunction.graphColorFillPostion(gainPar)} />
                                 </AreaChart>
                                 : <div>
-                                    <img src="images/loder.gif"  style={{'width':'100px'}} />
+                                    
                                     <h5>No Any Position Data Available.</h5>
                                 </div> }
                                 </div>
                             </div>
                        </div>
-                       <div className="col-md-4 col-sm-12 col-xs-12">
+                       <div className="col-xl-4 orderPreviwXL">
                        {/* form code start */}
                        {this.state.formAndPreviewList=== 0 ?
                        <div>
@@ -936,7 +971,7 @@ FINRA &amp; SIPC</p>
 
                                         </tbody>
                                     </table>
-                                    <div className="form-group mb-0 justify-content-end  col-12 m-l--15">
+                                    <div className="form-group mb-0 justify-content-end  col-12 m-l--15 p-r-5">
                                         <button type="button" className="btn btn-block btn-primary m-l-r--15" onClick={()=>this.createOrder('option',this.state.previewResData)}>Place Order</button>
                                     </div>
                                     <p className="text-muted formPTag2">Brokerage Services provided by Tradier Brokerage, Inc. Member

@@ -39,13 +39,12 @@ class Order extends Component {
         
         return (
         <div>
-        <div  className="card">
-            <div className="card-body">
+        
                 <div className="table-responsive-sm">
-                    <h4 className="header-title">ORDER</h4>
+                    {/* <h4 className="header-title">ORDER</h4> */}
                     <div className="row pm-4">
                         <div className="col-lg-12 col-sm-12 col-xs-12">
-                        <div className="slimscroll " >
+                       
                             <table className="table table-sm table-centered mb-0" id="myTable">
                             <thead>
                                 <tr>
@@ -113,10 +112,8 @@ class Order extends Component {
                     </div>
                     
                     
-                </div>
-            </div>
-
-        </div>
+               
+         
         <OrderView singleOrderData={this.state.singleOrder} />
         </div>
     );

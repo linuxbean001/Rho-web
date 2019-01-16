@@ -17,7 +17,8 @@ import {accountOrderFatch} from '../../../../../controller/actions/orderAcction'
 import {accountFatch} from '../../../../../controller/actions/accountAcction';
 import {accountPositionFatch} from '../../../../../controller/actions/accountPositions';
 import {refreshTimeInterval} from '../../../../../config';
-
+import News from '../../../../../modal/News';
+const news = new News;
 
 class Home extends Component {
     constructor(props) {   
@@ -32,6 +33,13 @@ class Home extends Component {
        
         componentWillMount(){
             this.props.userFatch();
+            news.NewsModal()
+            .then(res=>{
+
+            })
+            .catch(err=>{
+              
+            })
           }
      
         componentDidMount(){
@@ -105,30 +113,56 @@ class Home extends Component {
                          </div>
            </div>
            <div className="row">
-                       <div className="col-xl-12 pad-5">
-                              < Positions />
-                           
-                         </div>
-                         
-           </div>
-           <div className="row">
-                       <div className="col-xl-9 pad-5">
-                               < Order />
-                            
-                        </div>
-                        <div className="col-xl-3 pad-5">
+              <div className="col-xl-12 pad-5">
+              <div className="card">
+                <div className="card-body">
+                       <ul className="nav nav-tabs nav-bordered mb-2">
+                            <li className="nav-item">
+                                <a href="#home-b1" data-toggle="tab" aria-expanded="false" className="nav-link active">
+                                <i className="mdi mdi-call-missed d-lg-none d-block mr-1"></i>
+                                  <span className="d-none d-lg-block">Positions</span>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="#profile-b1" data-toggle="tab" aria-expanded="true" className="nav-link">
+                                    <i className="mdi mdi-basket d-lg-none d-block mr-1"></i>
+                                        <span className="d-none d-lg-block">Orders</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div className="tab-content">
+
+                            <div className="tab-pane show active" id="home-b1">
+                               < Positions />
+                            </div>
+                            <div className="tab-pane" id="profile-b1">
+                              < Order />
                              
-                                < HistorySideBar />
-                              
+                            </div>
                         </div>
+                    </div>
+                </div>
+              </div>
+           </div>
+           {/* <div className="row">
+              <div className="col-xl-12 pad-5">
+                  < Positions />
+              </div>
+           </div> */}
+           <div className="row">
+              {/* <div className="col-xl-9 pad-5">
+               < Order />
+            </div>
+            <div className="col-xl-3 pad-5">
+                < HistorySideBar />
+            </div> */}
                          
            </div>
            <div className="row">
-                       <div className="col-xl-12 pad-5">
-                              < Gains />
-                           
-                         </div>
-                         
+              <div className="col-xl-12 pad-5">
+                < Gains />
+              </div>
            </div>
            
            

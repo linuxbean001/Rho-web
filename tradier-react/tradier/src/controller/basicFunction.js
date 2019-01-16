@@ -352,4 +352,55 @@ export default class BasicFunction {
         }
         return reply;
     }
+
+    graphWidthEquaty(graphSize,graphType){
+     var width=graphSize;
+     var reply=graphSize;
+     var replysmall=graphSize;
+     var replyReturn=0;
+      if(graphSize>=1024){
+        reply = 693;
+        replysmall=305
+      }else{
+        if(graphSize>=600){
+          reply = 520;
+          replysmall=520
+         }
+        else{
+            if(graphSize>=350){
+              reply = 350;
+              replysmall=350
+            }else{
+              reply = 300;
+              replysmall=300
+             }
+        }
+     }
+     switch(graphType){
+       case 'big':
+          replyReturn=reply;
+       break;
+       case 'small':
+          replyReturn=replysmall;
+       break;
+       default:
+          replyReturn=graphSize;
+       break;
+     }
+     return replyReturn;
+  }
+  graphColorPostion(data){
+    if(data>=0){
+      return '#1fa764';
+       }else{
+      return '#ed5454';
+     }
+  }
+  graphColorFillPostion(data){
+    if(data>=0){
+      return '#abe5c1';
+       }else{
+      return '#ffa1a9';
+     }
+  }
 }

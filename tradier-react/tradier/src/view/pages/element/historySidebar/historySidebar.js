@@ -31,8 +31,8 @@ class HistorySideBar extends Component {
      }
        
        return (
-        <div className="card">
-                                    <div className="card-body">
+        <div className="">
+                                   
                                         <h4 className="header-title mb-2">HISTORY</h4>
 
                                         <div className="slimscroll" >
@@ -59,7 +59,7 @@ class HistorySideBar extends Component {
                                           }
                                          </div>
                                     </div>
-                                </div>
+                                
     );
   } 
 }

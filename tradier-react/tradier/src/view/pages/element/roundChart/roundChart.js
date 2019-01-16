@@ -106,7 +106,7 @@ class RoundChart extends Component{
            return(
            
             <div>
-                <h4 className="header-title">PORTFOLIO</h4>
+                {/* <h4 className="header-title">PORTFOLIO</h4> */}
                   <h2 className="page-title ">{this.props.accountBalance  ? basicFunction.currancyAddWithNumber(this.props.accountBalance.total_equity) : '$0.00' }</h2> 
                 <div className="mt-3" >
                    <Doughnut data={data} legend={legendOpts}  />

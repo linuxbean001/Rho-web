@@ -5,6 +5,7 @@ import Header from '../../../element/header/header';
 import Watchlist from '../../../element/watchlist/watchlist';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from '../home/home';
+import Stocks from '../stocks/stocks';
 import {watchlistsFatch} from '../../../../../controller/actions/watchlistAction';
 import {userFatch} from '../../../../../controller/actions/userFatch'
 
@@ -31,14 +32,17 @@ class Dashboard extends Component {
         {/* <Header /> */}
            <div className="container-fluid">
              <div className="row">
-                 <div className="col-sm-4 col-md-3 col-lg-2 col-xs-12 sidebar">
+                 <div className="col-md-3 col-sm-12 col-lg-2 col-xs-12 sidebar">
                   <Watchlist />
                  </div>
-                 <div className="col-sm-8 col-md-9 col-lg-10 col-xs-12 pad-5">
+                 <div className="col-sm-12 col-md-9 col-lg-10 col-xs-12 pad-5">
                    
                    <Router>
                       <Switch>
                           <Route exact path='/' component={Home} />
+                          <Route exact path='/stocks/:id' render={({ match })=>(
+                            <Stocks symbol={match.params.id}/>
+                          )} />
                       </Switch>
                     </Router>
                  </div>

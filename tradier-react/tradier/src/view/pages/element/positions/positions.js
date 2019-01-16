@@ -98,12 +98,11 @@ class Positions extends Component {
         }
         
       return (
-          <div>
-        <div  className="card" >
-            <div className="card-body">
+        <div>
+       
               <div className="table-responsive-sm">
-                <h4 className="header-title">POSITIONS</h4>
-                <div className="slimscroll" >
+                
+                {/* <div className="slimscroll" > */}
                 <div className="div-table" id="accordion">
                 
                     <div className="div-table-row d-t-h" >
@@ -131,8 +130,8 @@ class Positions extends Component {
                         <div className="div-table-col"><span>-</span></div>
                         <div className="div-table-col"><span>-</span></div>
                           
-                        <div className="div-table-col w-20">
-                               <span className="progressheading" style={{'margin-left': '-10px'}}>{processBar}</span>
+                        <div className="div-table-col w-cash-last-td">
+                               <span className="progressheading" style={{'margin-left': '-6px'}}>{processBar}</span>
                                 <div className="progress progress-sm">
                                         <div className={"progress-bar progress-lg progess-color"} style={{'width':processBar}} role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                         </div>
@@ -142,11 +141,10 @@ class Positions extends Component {
                     </div>
                 </div>
                </div>
-            </div>
+            {/* </div> */}
          </div>
             
-        </div>
-        </div>
+        
     );
   } 
 }
