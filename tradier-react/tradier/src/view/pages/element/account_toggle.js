@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Link} from 'react-router-dom';
 import {setActiveAccount} from '../../../controller/actions/setActiveAccount';
 import {accountFatch} from '../../../controller/actions/accountAcction';
 import {accountOrderFatch} from '../../../controller/actions/orderAcction';
@@ -39,7 +40,26 @@ class AccountToggle extends Component {
                        <div className="card">
                           <div className="card-body">
                                 <div className="page-title-box">
+                                <div className="col-xl-6 p-a">
+                                    <div className="app-search">
+                                        <form>
+                                            <div className="input-group">
+                                                <input type="text" className="form-control" placeholder="Search..." />
+                                                <span className="mdi mdi-magnify"></span>
+                                                <div className="input-group-append">
+                                                    <button className="btn btn-primary" type="submit">Search</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div className="col-xl-6 f-r">
                                     <div className="page-title-right toggleAccountDiv">
+                                    <ul className="navigationUl">
+                                       <li><Link to="/">Home</Link></li>
+                                       <li><Link to="/gains">Gains</Link></li>
+                                       <li><Link to="/history">History</Link></li>
+                                   </ul>
                                         <form className="form-inline">
                                             <div className="form-group">
                                                 <div className="input-group">
@@ -58,6 +78,7 @@ class AccountToggle extends Component {
                                             </div>
                                         </form>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                             </div>

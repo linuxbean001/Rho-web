@@ -1,6 +1,6 @@
 {
     "apiurl" : "https://api.tradier.com/v1/",
-    "isSendBox":true,
+    "isSendBox":false,
     "accessCode":"9hdR5iv3N4asyPqVkMVylSfxYuir",
     "activeAccountNumber":"VA22459606",
     "sendBoxurl":"https://sandbox.tradier.com/v1/"

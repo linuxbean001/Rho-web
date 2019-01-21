@@ -6,6 +6,8 @@ import Watchlist from '../../../element/watchlist/watchlist';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from '../home/home';
 import Stocks from '../stocks/stocks';
+import History from '../history/history';
+import Gain from '../gain/gain';
 import {watchlistsFatch} from '../../../../../controller/actions/watchlistAction';
 import {userFatch} from '../../../../../controller/actions/userFatch'
 
@@ -43,6 +45,8 @@ class Dashboard extends Component {
                           <Route exact path='/stocks/:id' render={({ match })=>(
                             <Stocks symbol={match.params.id}/>
                           )} />
+                          <Route exact path='/history' component={History} />
+                          <Route exact path='/gains' component={Gain} />
                       </Switch>
                     </Router>
                  </div>

@@ -125,7 +125,7 @@ router.post('/history',(req , res, next) =>{
     const interval= req.body.interval;
     const start= req.body.start;
     const end = req.body.end;
-   // console.log('hello',interval);
+    
     var options = { method: 'GET',
             url: apiBaseUrl+'markets/history',
             headers: 

@@ -359,8 +359,8 @@ export default class BasicFunction {
      var replysmall=graphSize;
      var replyReturn=0;
       if(graphSize>=1024){
-        reply = 693;
-        replysmall=305
+        reply = 705;
+        replysmall=312
       }else{
         if(graphSize>=600){
           reply = 520;

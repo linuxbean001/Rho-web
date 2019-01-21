@@ -35,13 +35,11 @@ class Order extends Component {
       }
 
   render() {
-      //console.log('order',this.props);
-        
-        return (
+      return (
         <div>
         
                 <div className="table-responsive-sm">
-                    {/* <h4 className="header-title">ORDER</h4> */}
+                    
                     <div className="row pm-4">
                         <div className="col-lg-12 col-sm-12 col-xs-12">
                        
@@ -65,7 +63,7 @@ class Order extends Component {
                                     <tr className='order_tr ' data-toggle="modal" data-target="#myModal"  onClick={()=>this.setSingleOrder(this.props.orders.order)}  > 
                                         <td >{basicFunction.optionNameSplit(this.props.orders.order.symbol)}</td>
                                         <td>{basicFunction.nombarFormat(this.props.orders.order.quantity)}</td>
-                                        <td>{basicFunction.capitalizeFirstLetter(this.props.orders.order.type)}
+                                        <td>{basicFunction.GetFullForm(this.props.orders.order.type)}
                                         
                                         </td>
                                         <td>

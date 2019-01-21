@@ -40,7 +40,6 @@ router.post('/',(req , res, next) =>{
         const AuthorizationCode = req.body.Authorization;
         const acc_id = req.body.acc_id;
         var curl = new Curl();
-       // console.log('acc_id',acc_id +'-'+ AuthorizationCode);
         var options = { method: 'GET',
             url: apiBaseUrl+'accounts/'+ acc_id +'/positions',
             headers: 
@@ -153,9 +152,7 @@ router.post('/',(req , res, next) =>{
         const AuthorizationCode = req.body.Authorization;
         const acc_id = req.body.acc_id;
         var curl = new Curl();
-        
         var options = { method: 'GET',
-        
             url: apiBaseUrl+'accounts/'+ acc_id +'/positions',
             headers: 
              { 'cache-control': 'no-cache',

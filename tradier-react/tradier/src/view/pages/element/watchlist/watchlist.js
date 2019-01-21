@@ -12,20 +12,8 @@ class Watchlist extends Component {
             <div className="row">
             <img src="images/l2.png"  className="logoimage" />
             </div>
-            
-            <div className="app-search">
-                    <form>
-                        <div className="input-group">
-                            <input type="text" className="form-control" placeholder="Search..." />
-                            <span className="mdi mdi-magnify"></span>
-                            <div className="input-group-append">
-                                <button className="btn btn-primary" type="submit">Search</button>
-                            </div>
-                        </div>
-                    </form>
-            </div>
-            <div className="table-responsive-sm">
-                <h4 className="header-title pull-left">Watchlist</h4>
+              <div className="table-responsive-sm">
+                <h4 className="header-title t-a-l">Watchlist</h4>
                 <table className="table table-sm table-centered mb-0">
                     <tbody>
                         <tr>

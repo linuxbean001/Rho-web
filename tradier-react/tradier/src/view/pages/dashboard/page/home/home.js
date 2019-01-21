@@ -5,6 +5,7 @@ import AccountStatus from '../../../element/accountStatus/accountStatus';
 import RoundChart from '../../../element/roundChart/roundChart';
 import AccountToggle from '../../../element/account_toggle';
 import Positions from '../../../element/positions/positions';
+import Orders from '../../../element/order/orders';
 import Order from '../../../element/order/order';
 import Gains from '../../../element/gains/gains';
 import HistorySideBar from '../../../element/historySidebar/historySidebar';
@@ -65,7 +66,7 @@ class Home extends Component {
     
      if(this.props.user &&  this.props.user.length>0){
         if(this.props.currentaccount && this.props.currentaccount.length>0) {
-           console.log('aready send ',this.props.currentaccount);
+           //console.log('aready send ',this.props.currentaccount);
         }else{
             if(!localStorage.getItem('ActiveAccountNumber')){
                 localStorage.setItem('ActiveAccountNumber',this.props.user[0].account_number);
@@ -115,7 +116,7 @@ class Home extends Component {
            <div className="row">
               <div className="col-xl-12 pad-5">
               <div className="card">
-                <div className="card-body">
+                <div className="card-body m-t-10">
                        <ul className="nav nav-tabs nav-bordered mb-2">
                             <li className="nav-item">
                                 <a href="#home-b1" data-toggle="tab" aria-expanded="false" className="nav-link active">
@@ -137,7 +138,7 @@ class Home extends Component {
                                < Positions />
                             </div>
                             <div className="tab-pane" id="profile-b1">
-                              < Order />
+                              < Orders/>
                              
                             </div>
                         </div>

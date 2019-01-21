@@ -11,7 +11,7 @@ export default class Trading{
                 //console.log('xxxxxxx xxxxxxxxxxx response is ', result);
                 if(result.data.message=='success'){
                     return result;
-                }else{
+                }else{ 
                     return false; 
                 }
              }).catch(err => {
@@ -31,5 +31,30 @@ export default class Trading{
             }).catch(err => {
                 console.log('xxxxxxx xxxxxxxxxxx err is ', err);
             });
-        }  
+        } 
+    updateOrder(Authorization,account_id,formData,orderId) {
+      //  console.log('formdata=',formData);
+        return axios.post(apiUrl+'trading/OrderUpdate', {Authorization,account_id,formData,orderId})
+                .then((result) => {
+                    if(result.data.message=='success'){
+                        return result;
+                    }else{
+                        return false; 
+                    }
+                }).catch(err => {
+                   // console.log('xxxxxxx xxxxxxxxxxx err is ', err);
+                });
+            }  
+    deleteOrder(Authorization,account_id,orderId) {
+        return axios.post(apiUrl+'trading/OrderDelete', {Authorization,account_id,orderId})
+                .then((result) => {
+                    if(result.data.message=='success'){
+                          return result;
+                     }else{
+                            return false; 
+                     }
+                  }).catch(err => {
+                              console.log('xxxxxxx xxxxxxxxxxx err is ', err);
+                  });
+     }
 }

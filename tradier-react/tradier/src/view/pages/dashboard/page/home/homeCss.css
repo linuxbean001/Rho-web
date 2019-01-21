@@ -30,8 +30,8 @@ th {
 }
 
 .page-title-right.toggleAccountDiv {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 19px;
+    margin-bottom: -10px;
 }
 select.form-control.form-control-light.toggle-color {
   background-color: #ffffff !important;
@@ -89,15 +89,27 @@ select.form-control.form-control-light.toggle-color {
 }
 
 
+div#accordion {
+  padding: 0;
+  border-bottom: none;
+}
+div#accordion2 {
+  padding: 0;
+  border-bottom: none;
+}
 
-
+ul.nav.nav-tabs.nav-bordered.mb-2 {
+  margin-bottom: 0px !important;
+}
 
 
 .div-table {
   display: table;         
   width: 100%;         
-  border-spacing: 5px; 
-  margin-left: -5px;
+  border-spacing: 0px; 
+  /* margin-left: -5px; */
+  padding: 8px 0px;
+    border-bottom: 1px solid #e3eaef;
 }
 .div-table-row {
   display: table-row;
@@ -113,8 +125,8 @@ select.form-control.form-control-light.toggle-color {
 }
 .d-t-h {
   border-bottom: 1px solid #e3eaef;
-  margin-top: 1px;
-  margin-bottom: 3px;
+  margin-top: 0px;
+  margin-bottom: 0px;
  
 }
 
@@ -227,6 +239,7 @@ td.t-a-r {
 }
 .div-table-row.d-t-h div {
   font-weight: 700;
+  padding: 12px 0px;
 }
 .progressheading {
   float: left;
@@ -332,7 +345,7 @@ p{
   color: #fff;
 }
 .div-table-col span {
-  margin-left: 4px;
+  margin-left: 0px;
 }
 .btn:focus, .btn.focus {
   
@@ -342,10 +355,54 @@ p{
 .p-r-5{
   padding-right: 5px
 }
-.w-cash-last-td{
-  width: 18.5%;
-  margin-left: 5px;
+
+
+.w-12{
+   width: 12%
 }
+.w-24{
+  width: 24%
+}
+.w-25{
+  width: 25%
+}
+.w-15{
+  width: 15%
+}
+.w-16{
+  width: 16%
+}
+.w-10{
+  width: 10%
+}
+.btn-primary {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-secondary {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-warning {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-light{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.btn-warning{
+  color: #fff;
+}
+
+
 @media screen and (max-width: 500px) {
   .c-b-f-b {
     width: 40px;

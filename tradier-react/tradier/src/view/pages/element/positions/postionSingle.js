@@ -36,6 +36,7 @@ class PostionSingle extends Component {
             window_width:window.innerWidth,
             graphWidthequity:0,
             graphWidthOption:0,
+            stringErrorMessasge:'',
 
             
         } ;
@@ -51,7 +52,7 @@ class PostionSingle extends Component {
         var graphWidthOption=basicFunction.graphWidthEquaty(widthGraph,'small');
         this.setState({graphWidthequity:graphWidthEquaty});
         this.setState({graphWidthOption:graphWidthOption});
-        console.log('width is',graphWidthEquaty);
+       // console.log('width is',graphWidthEquaty);
      }
     changeActionTypeForm(actionType){
          this.setState({actionType:actionType});
@@ -196,7 +197,7 @@ class PostionSingle extends Component {
         }else{
             this.setState({orderFormErrorArray:0});
             var getSideData=basicFunction.orderSideSelectionFunction(this.state.actionType,this.state.actionType2,option);
-            console.log('getSideData',getSideData);
+           // console.log('getSideData',getSideData);
             var formdata={
                 Type:formOrderType,
                 Quantity:formOrderShare,
@@ -207,28 +208,48 @@ class PostionSingle extends Component {
                 Symbol:symbol, 
                 Side:getSideData
             }
-          // console.log('form data',formdata);
+           //console.log('form data',formdata);
             trading.previewOrder(localStorage.getItem("Authorization"),localStorage.getItem("ActiveAccountNumber"),formdata)
             .then(res=>{
+                console.log('submit data 1',res.data);
+                
                 if(res.data.message==='success'){
-               
-                    const data = JSON.parse(res.data.data);
-                    if(data.errors){
+                    
+                  //  if(res.data.data.length<=100){
                         this.setState({orderFormErrorArray:1})
                         this.setState({formAndPreviewList:0});
-                        this.setState({orderFormErrorListArrayRes:data.errors});
-                    }
-                    if(data.order){
-                       this.setState({formAndPreviewList:1});
-                       this.setState({previewResData:data.order});
-                       console.log('submit data',data.order);
-                    }
+                        this.setState({stringErrorMessasge:res.data.data});
+                  //  }else{
+                      //  console.log('submit data 3',res.data.data);
+                        const data = JSON.parse(res.data.data);
+                            this.setState({orderFormErrorArray:0})
+                            this.setState({formAndPreviewList:0});
+                            this.setState({stringErrorMessasge:''});
+                            //this.setState({orderFormErrorListArrayRes:res.data.data});
+                             //console.log('submit data 4',data);
+                                if(data.errors){
+                                    this.setState({orderFormErrorArray:1})
+                                    this.setState({formAndPreviewList:0});
+                                    this.setState({orderFormErrorListArrayRes:data.errors});
+                                    console.log('submit data ',data.order);
+                                }
+                                if(data.order){
+                                this.setState({formAndPreviewList:1});
+                                this.setState({previewResData:data.order});
+                                console.log('submit err',data.order);
+                                }
+                   // }
                     
+                   
+                    
+                }else{
+                    console.log('submit data 2',res.data);
                 }
+                
                 
             })
             .catch(err=>{
-                console.log('error xxxxxxxxxxxxxxxxx',err);
+             //   console.log('error xxxxxxxxxxxxxxxxx',err);
             })
 
         }
@@ -495,29 +516,29 @@ class PostionSingle extends Component {
         <div className="div-table" >
         
             <div className="div-table-row t-bodyes" data-toggle="collapse" href={"#collapseOne"+this.props.index} aria-expanded="true" aria-controls="collapseOne" onClick={()=>this.graphData(this.props.newPostionWithGain[0].symbol,typeis,1)}>
-            <div className="div-table-col w-20"><span>
+            <div className="div-table-col w-24"><span>
                {basicFunction.optionNameSplit(this.props.newPostionWithGain[0].symbol)}</span>
             </div>
-            <div className="div-table-col"><span>
+            <div className="div-table-col w-12"><span >
                {basicFunction.nombarFormat(position.quantity)}</span>
             </div>
-            <div className="div-table-col"><span>
+            <div className="div-table-col w-12"><span >
                 {newAvrageValue}</span>
             </div>
-            <div className="div-table-col">
-                <span>
+            <div className="div-table-col w-12">
+                <span >
                     { this.props.newPostionWithGain && this.props.newPostionWithGain[1] ?  basicFunction.currancyAddWithNumber(this.props.newPostionWithGain[1].last) : ' -'}
                 </span>
             </div>
-             <div className="div-table-col"><span > 
+             <div className="div-table-col w-15"><span > 
                  { this.props.newPostionWithGain && this.props.newPostionWithGain[1] ? 
-                    <span className={basicFunction.priceColor(gainPar)} style={{'marginLeft':'3px'}}>
+                    <span className={basicFunction.priceColor(gainPar)} >
                         {basicFunction.currancyAddWithNumber(findGain)} {' '}
                     ({basicFunction.nombarFormat(gainPar)}%)
                     </span> : ' - ' }</span>
              </div>
-                  <div className="div-table-col w-20">
-                    <span className="progressheading" style={{'marginLeft':'6px'}}>{basicFunction.nombarFormat(allocation)}%</span>
+                  <div className="div-table-col w-25">
+                    <span className="progressheading" >{basicFunction.nombarFormat(allocation)}%</span>
                         <div className="progress progress-sm">
                         
                         <div className={"progress-bar progress-lg progess-color"} style={{'width':processBar}} role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -532,15 +553,7 @@ class PostionSingle extends Component {
                             <div className="col-md-5 col-sm-12  f-l">
                                 
                                 <h4 className="collapse-sub-heading">{this.props.newPostionWithGain[1] && this.props.newPostionWithGain[1].last ? basicFunction.currancyAddWithNumber(this.props.newPostionWithGain[1].last) :'-'}
-                                    {/* {
-                                        // <span> 
-                                        // { this.props.newPostionWithGain && this.props.newPostionWithGain[1] ? 
-                                        //    <span className={basicFunction.priceColor(gainPar)}>
-                                        //        {basicFunction.currancyAddWithNumber(findGain)} {' '}
-                                        //    ({basicFunction.nombarFormat(gainPar)}%)
-                                        //    </span> : ' - ' }</span> 
-                                      
-                                    } */}
+                                   
                                      {
                                         <span> 
                                         { this.props.newPostionWithGain && this.props.newPostionWithGain[1] ? 
@@ -823,7 +836,7 @@ FINRA &amp; SIPC</p>
                                     <a className="btn btn-link right-graph-upper-link  t-a-r">{basicFunction.optionNameSplit(this.props.newPostionWithGain[0].symbol)}</a>
                             <div style={{'marginTop': '128px'}}>      
                               {this.state.optionSeries && this.state.optionSeries.length>0 ?
-                                <AreaChart width={305} height={200} data={this.state.optionSeries} margin={{ left: 0,top:10 }}>
+                                <AreaChart width={this.state.graphWidthOption} height={200} data={this.state.optionSeries} margin={{ left: 0,top:10 }}>
                                     <XAxis dataKey="name"/>
                                     <YAxis type="number" domain={[this.state.graphMinValue,this.state.graphMaxValue]} />
                                     <Tooltip/>
@@ -983,7 +996,7 @@ FINRA &amp; SIPC</p>
                     </div> 
                    }
             </div>
-            <hr className="table-hr" />
+            {/* <hr className="table-hr" /> */}
             {this.state.orderFormErrorArray && this.state.orderFormErrorArray>0  ?
             <div id="warning-alert-modal" className="modal fade show" tabIndex="-1" role="dialog" style={{'padding-right': '17px','background':'#11111175'}}>
             <div className="modal-dialog modal-sm">
@@ -997,6 +1010,10 @@ FINRA &amp; SIPC</p>
                                     <li key={i}>{this.state.orderFormErrorListArray[er]}</li>
                                         ))}
                             </ol>
+                            {this.state.stringErrorMessasge ?
+                                <p>{  this.state.stringErrorMessasge}</p>
+                            :''}
+                            
                             {this.state.orderFormErrorListArrayRes ?
                                 <p>{  this.state.orderFormErrorListArrayRes.error}</p>
                             :''}

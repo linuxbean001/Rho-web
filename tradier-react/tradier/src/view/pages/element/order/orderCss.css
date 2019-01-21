@@ -1,16 +1,19 @@
 .order_tr td {
     position: relative;
 }
+.p-r{
+    position: absolute;
+}
 .filled:before{
     content: "";
     display: block;
     position: absolute;
     left: -18px;
-    top: 15px;
+    top: 6px;
     width: 12px;
     height: 12px;
-    border: 1px solid #00BA65;
-    background: #00BA65;
+    border: 1px solid #1fa764;
+    background: #1fa764;
     border-radius: 50%;
 }
 .canceled:before{
@@ -18,11 +21,11 @@
     display: block;
     position: absolute;
     left: -18px;
-    top: 15px;
+    top: 6px;
     width: 12px;
     height: 12px;
-    border: 1px solid rgb(237, 84, 84);
-    background: rgb(237, 84, 84);
+    border: 1px solid #ed5454;
+    background: #ed5454;
     border-radius: 50%;
     
 }
@@ -31,11 +34,11 @@
     display: block;
     position: absolute;
     left: -18px;
-    top: 15px;
+    top: 6px;
     width: 12px;
     height: 12px;
-    border: 1px solid rgb(255 ,125, 57);
-    background: rgb(255, 125 , 57);
+    border: 1px solid #fcc73b;
+    background: #fcc73b;
     border-radius: 50%;
 }
 .expired:before{
@@ -43,7 +46,7 @@
     display: block;
     position: absolute;
     left: -18px;
-    top: 15px;
+    top: 6px;
     width: 12px;
     height: 12px;
     border: 1px solid rgb(237, 84, 84);
@@ -55,11 +58,11 @@
     display: block;
     position: absolute;
     left: -18px;
-    top: 15px;
+    top: 6px;
     width: 12px;
     height: 12px;
-    border: 1px solid rgb(237, 84, 84);
-    background: rgb(237, 84, 84);
+    border: 1px solid #ed5454;
+    background: #ed5454;
     border-radius: 50%;
 }
 .pending:before{
@@ -67,11 +70,11 @@
     display: block;
     position: absolute;
     left: -18px;
-    top: 15px;
+    top:6px;
     width: 12px;
     height: 12px;
-    border: 1px solid #727cf5;
-    background: #727cf5;
+    border: 1px solid #fcc73b;
+    background: #fcc73b;
     border-radius: 50%;
 }
 .partially_filled:before{
@@ -79,11 +82,11 @@
     display: block;
     position: absolute;
     left: -18px;
-    top: 15px;
+    top: 6px;
     width: 12px;
     height: 12px;
-    border: 1px solid #0066AF;
-    background: #0066AF;
+    border: 1px solid #4885ff;
+    background: #4885ff;
     border-radius: 50%;
 }
 .submitted:before{
@@ -91,7 +94,7 @@
     display: block;
     position: absolute;
     left: -18px;
-    top: 15px;
+    top: 6px;
     width: 12px;
     height: 12px;
     border: 1px solid rgb(255 ,125, 57);
@@ -119,5 +122,33 @@ a.viewmore {
     float: right;
     font-weight: 600;
     color: #000;
-    margin-right: 15px;
+    margin-right: 0px;
+}
+.w-10 {
+    width: 10%;
+}
+.w-12 {
+    width: 12%;
+}
+.orderBtn-left {
+    margin: 0px 3px 0px -10px;
+    width: 48%;
+}
+.orderBtn-right {
+    margin: 0px -11px 0px 7px;
+    width: 48%;
+    background: #6d757d;
+}
+.p-b-10{
+    padding-bottom: 10px;
+}
+a.btn.btn-primary.orderBtn-left {
+    color: #fff;
+}
+
+button.btn.btn-warning.my-2.b-r {
+    margin-left: 5px;
+}
+.my-2.b-l {
+    margin-right: 5px;
 }

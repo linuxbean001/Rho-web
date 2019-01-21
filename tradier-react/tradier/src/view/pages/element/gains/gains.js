@@ -29,7 +29,7 @@ class Gains extends Component {
     toggleGainFun(){
         const toggleGain=!this.state.toggleGain;
         this.setState({toggleGain});
-        console.log('res',this.state.toggleGain);
+       // console.log('res',this.state.toggleGain);
     }
     componentDidMount(){
           if(this.props.currentaccount && this.props.currentaccount!='' ){

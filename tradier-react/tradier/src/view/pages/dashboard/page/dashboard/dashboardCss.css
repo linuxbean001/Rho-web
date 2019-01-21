@@ -27,3 +27,28 @@
 .pad-right-5{
   padding-right: 5px;
 }
+.m-t-10{
+    margin-top:10px
+}
+
+ul.navigationUl {
+    list-style-type: none;
+    float: left;
+}
+ul.navigationUl li {
+    float: left;
+     margin: 8px;
+}
+ul.navigationUl li a {
+    color: #585c63;
+    font-weight: bold;
+}
+
+select.form-control.form-control-light.toggle-color {
+    color: #585c63;
+    font-weight: bold;
+}
+
+.p-a {
+    position: absolute;
+}

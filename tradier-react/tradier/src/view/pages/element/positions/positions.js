@@ -100,18 +100,18 @@ class Positions extends Component {
       return (
         <div>
        
-              <div className="table-responsive-sm">
+              <div className="">
                 
                 {/* <div className="slimscroll" > */}
                 <div className="div-table" id="accordion">
                 
                     <div className="div-table-row d-t-h" >
-                        <div className="div-table-col w-20" align="center">Symbol</div>
-                        <div  className="div-table-col">Quantity</div>
-                        <div  className="div-table-col">Average Cost</div>
-                        <div  className="div-table-col">Last Price</div>
-                        <div  className="div-table-col">Gain</div>
-                        <div  className="div-table-col">Allocation</div>
+                        <div className="div-table-col w-24" align="center">Symbol</div>
+                        <div  className="div-table-col w-12">Quantity</div>
+                        <div  className="div-table-col w-12">Average Cost</div>
+                        <div  className="div-table-col w-12">Last Price</div>
+                        <div  className="div-table-col w-15">Gain</div>
+                        <div  className="div-table-col w-25">Allocation</div>
                     </div>
                     <hr className='d-t-h' />
                     {this.props.accountPositionWithGain && this.props.accountPositionWithGain.position && this.props.accountPositionWithGain.position.length>0 ?
@@ -121,23 +121,25 @@ class Positions extends Component {
                                     position={pos} key={i}  totalValue={totalValue} onchangeSinglePosition={this.onchangeSinglePosition} newPostionWithGain={pos} index={i} hide={this.state.hide}  onchangeSinglePositionIndex={this.onchangeSinglePositionIndex} />
                                 ))
                                  :
-                                <div>There are no position in your history. </div>
+                                <div className="f-l">There are no position in your history. </div>
                                   } 
+                   <div className="div-table" >
                     <div className="div-table-row t-bodyes" >
-                        <div className="div-table-col w-20"><span>Cash</span></div>
-                        <div className="div-table-col"><span>-</span></div>
-                        <div className="div-table-col"><span>-</span></div>
-                        <div className="div-table-col"><span>-</span></div>
-                        <div className="div-table-col"><span>-</span></div>
+                        <div className="div-table-col w-24"><span>Cash</span></div>
+                        <div className="div-table-col w-12"><span>-</span></div>
+                        <div className="div-table-col w-12"><span>-</span></div>
+                        <div className="div-table-col w-12"><span>-</span></div>
+                        <div className="div-table-col w-15"><span>-</span></div>
                           
-                        <div className="div-table-col w-cash-last-td">
-                               <span className="progressheading" style={{'margin-left': '-6px'}}>{processBar}</span>
+                        <div className="div-table-col w-cash-last-td w-25">
+                               <span className="progressheading" >{processBar}</span>
                                 <div className="progress progress-sm">
                                         <div className={"progress-bar progress-lg progess-color"} style={{'width':processBar}} role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                         </div>
                                 </div>
                         </div>
                         
+                    </div>
                     </div>
                 </div>
                </div>

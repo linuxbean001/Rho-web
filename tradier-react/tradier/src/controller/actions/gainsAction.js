@@ -19,7 +19,7 @@ export const accountGainsFatch = (ActiveAccountNumber) => {
 
 
 export const accountGainsFatchSuccess = (userGains) => {
-  console.log('gain',userGains)
+  //console.log('gain',userGains)
    return {
     type: GAINS_USER,
     payload:userGains
@@ -27,7 +27,7 @@ export const accountGainsFatchSuccess = (userGains) => {
 }
 
 export const accountGainsFatchERROR = (err) => {
-    console.log('success',err);
+   // console.log('success',err);
     return {
       type: GAINS_ORDER_ERR,
       payload:'noData'
